@@ -11,8 +11,25 @@ const foodSchema = new mongoose.Schema(
     quantity: { type: Number, required: true, min: 0 },
     description: { type: String, default: "" },
     imageUrl: { type: String, default: "" },
+    searchText: { type: String, default: "", select: false },
   },
   { timestamps: true }
 );
+
+const removeAccents = (str) =>
+  String(str || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase();
+
+foodSchema.pre("save", function () {
+  this.searchText = removeAccents(
+    [this.foodId, this.name, this.category, this.cuisine].join(" ")
+  );
+});
+
+foodSchema.statics.removeAccents = removeAccents;
 
 module.exports = mongoose.model("Food", foodSchema, "foods");
