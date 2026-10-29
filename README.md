@@ -18,3 +18,13 @@ Sẽ được cập nhật ở các câu sau.
 
 ## Liên kết triển khai
 Sẽ được cập nhật sau khi triển khai.
+
+## Chay backend bang Docker
+
+```bash
+cd backend
+docker build -t trinhhoangdinh/backend .
+docker run -p 5001:5001 -e PORT=5001 -e MONGO_URI="<chuoi-ket-noi-mongodb>" trinhhoangdinh/backend
+```
+
+Image: https://hub.docker.com/r/trinhhoangdinh/backend
