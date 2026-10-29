@@ -38,3 +38,7 @@ docker run -p 8080:80 trinhhoangdinh/frontend
 ```
 
 Image: https://hub.docker.com/r/trinhhoangdinh/frontend
+
+## Backend API da trien khai (Render)
+
+https://two35951-trinhhoangdinh.onrender.com
