@@ -28,3 +28,13 @@ docker run -p 5001:5001 -e PORT=5001 -e MONGO_URI="<chuoi-ket-noi-mongodb>" trin
 ```
 
 Image: https://hub.docker.com/r/trinhhoangdinh/backend
+
+## Chay frontend bang Docker
+
+```bash
+cd frontend
+docker build --build-arg VITE_API_URL=https://two35951-trinhhoangdinh.onrender.com -t trinhhoangdinh/frontend .
+docker run -p 8080:80 trinhhoangdinh/frontend
+```
+
+Image: https://hub.docker.com/r/trinhhoangdinh/frontend
